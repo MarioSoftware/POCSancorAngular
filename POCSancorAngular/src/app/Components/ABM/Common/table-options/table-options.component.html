@@ -1,0 +1,29 @@
+<div class="DTTT_container">
+  <a class="DTTT_button DTTT_button_collection" id="ToolTables_myTable_0" title="Exportar"> 
+  <span><i class="fa fa-download"></i></span>
+</a>
+<a class="DTTT_button nf-responsive-button DTTT_disabled" id="ToolTables_myTable_5" title="Formato dispositivos móviles">
+  <span title="Formato para escritorio">
+    <i class="fa toggle-responsive-button fa-desktop">
+  </i>
+</span>
+</a><a class="DTTT_button DTTT_button_print" id="ToolTables_myTable_6" title="Pantalla completa">
+  <span><i class="fa fa-expand"></i>
+  </span></a>
+  <a class="DTTT_button DTTT_button_text DTTT_disabled" id="ToolTables_myTable_7" title="Restaurar">
+    <span><i class="fa fa-undo">
+
+    </i></span>
+  </a>
+</div>
+   
+<div class="ColVis">
+  <button  (click)="ObtenerPanelColumnas()" class="ColVis_Button ColVis_MasterButton"  > <span>Columnas</span>
+</button>
+
+<div style="display:none;" id="myDIV"> 
+   <input *ngFor="let column of columnItems" (click)="setiarColumnas(column)" type="checkbox" > {{column}}<br>
+</div>
+</div>
+ 
+ 

@@ -1,0 +1,78 @@
+<div id="modalFormulario" class="modal fade ui-draggable in" tabindex="-1" aria-labelledby="myModalLabel"
+  aria-hidden="false" data-bind="with: officeForm" style="display: block;">
+  <div class="modal-dialog modal-scrollable">
+    <div class="modal-content">
+      <div class="modal-header ui-draggable-handle">
+        <button type="button" class="close" data-dismiss="modal" (click)="Cancel()">
+          <span aria-hidden="true">×</span>
+          <span class="sr-only">Cerrar</span>
+        </button>
+        <h4 class="modal-title">Agregar Usuario</h4>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="form" id="editForm" class="form-vertical bv-form">
+          <button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+          <div class="form-body">
+
+            <div class="row">
+
+
+              <div class="form-group col-md-6">
+                <label for="inName" class="control-label">Nombre</label>
+                <input type="text" formControlName="nombre" [(ngModel)]="Nombre" class="form-control" id="inName" name="inName">
+                <div *ngIf="submitted &&f.nombre.errors" class="invalid-feedback">
+                  <div *ngIf="submitted && f.nombre.errors.required">Por favor introduce un valor</div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inName" class="control-label">Pais</label>
+                <select class="form-control" formControlName="pais" style="width:165px" [(ngModel)]="paisSelect" name="pais"
+                  (ngModelChange)="selectPais()" required>
+                  <option *ngFor="let pais of paises" [ngValue]="pais">{{pais.Nombre}}</option>
+                </select>
+                <div *ngIf="submitted && f.pais.value.Id == -1" class="LabelError">
+                  <div *ngIf="submitted && f.pais.value.Id == -1">El Pais es requerido</div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="form-group col-md-6">
+                <label for="inName" class="control-label">Provincia</label>
+                <select class="form-control" formControlName="provincia" style="width:165px" [(ngModel)]="provinciasSelect"
+                  name="provincia" (ngModelChange)="selectProvincias()" required>
+                  <option *ngFor="let provincia of provincias" [ngValue]="provincia">{{provincia.Nombre}}</option>
+                </select>
+                <div *ngIf="submitted && f.provincia.value.Id == -1" class="LabelError">
+                  <div *ngIf="submitted && f.provincia.value.Id == -1">La Provincia es requerido</div>
+                </div>
+
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="inName" class="control-label">Ciudad</label>
+                <select class="form-control" formControlName="ciudad" style="width:165px" [(ngModel)]="ciudadSelect"
+                  name="ciudad" required>
+                  <option *ngFor="let ciudad of ciudades" [ngValue]="ciudad">{{ciudad.Nombre}}</option>
+                </select>
+                <div *ngIf="submitted && f.ciudad.value.Id == -1" class="LabelError">
+                  <div *ngIf="submitted && f.ciudad.value.Id == -1">La Ciudad es requerido</div>
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" (click)="Confirm()">Guardar</button>
+        <button type="button" class="btn btn-link" (click)="Cancel()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

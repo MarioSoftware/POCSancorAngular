@@ -1,0 +1,29 @@
+<header class="site-header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <div class="row" style="background-color: #0a4595;">
+        <h1 class="col-xs-4 col-md-2">
+            <span property="brand" class="sr-only" itemprop="headline">Sancor Seguros</span>
+            <a href="https://www.sancorseguros.com.ar" itemprop="name" title="Sancor Seguros">
+                <img class="logo" src="https://corporate-site-content.gruposancorseguros.com/SSA/Content/marca-sancor-seguros.svg"
+                    alt="Sancor Seguros">
+            </a>
+        </h1>
+        <form class="form-inline">
+            
+            <button id="qsLoginBtn"
+              class="btn btn-primary my-2 my-sm-0"
+              *ngIf="!auth.isAuthenticated()"
+              (click)="auth.login()" type="button">
+                Log In
+            </button>
+    
+            <button id="qsLogoutBtn"
+              class="btn btn-primary my-2 my-sm-0"
+              *ngIf="auth.isAuthenticated()"
+              (click)="auth.logout()" type="button">
+                Log Out
+            </button>
+    
+          </form>
+    </div>
+    
+</header>

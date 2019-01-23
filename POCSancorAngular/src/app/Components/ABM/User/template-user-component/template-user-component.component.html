@@ -1,0 +1,35 @@
+<div class="container">
+
+  <!-- Título de la vista (obligatorio) -->
+  <div class="view-header">
+    <header id="page-header">
+      <h1>ABM Cliente.</h1>
+    </header>
+  </div>
+
+  <div class="row toolbar-wrapper">
+    <div class="col-sm-5 col-md-6">
+      <app-abmactions-component [objetoParameter]=selection (responseAction)="EjecutarAlgo()"></app-abmactions-component>
+    </div>
+    <div class="col-md-6">
+      <label>Buscar : </label>
+      <mat-form-field>
+        <input class="form-control input-sm" id="filterInput" matInput (keyup)="applyFilter($event.target.value)">
+      </mat-form-field>
+      <app-table-options  (MessageEvent)="setiarColumnas($event)" ></app-table-options>
+
+    </div>
+
+  </div>
+
+  <div id="content" class="view-content">
+    <div class="row">
+      <div class="col-lg-12">
+        <app-grid-user-component #gridChild>
+        </app-grid-user-component>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+  </div>
+
+</div>

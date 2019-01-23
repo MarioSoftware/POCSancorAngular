@@ -1,0 +1,16 @@
+<app-header-component>
+
+</app-header-component>
+
+
+
+<router-outlet>
+
+</router-outlet>
+
+<h4 *ngIf="auth.isAuthenticated()">
+    You are logged in!
+</h4>
+<h4 *ngIf="!auth.isAuthenticated()">
+    You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
+</h4>
